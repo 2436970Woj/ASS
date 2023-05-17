@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Assignment Submission System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+              crossorigin="anonymous">
+        <link   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+                rel="stylesheet"  type='text/css'>
+    </head>
+
+    <body>
+        <div class="container my-2">
+            <h1>Assignment Submission System - Advisor</h1>
+            <hr>
+            <div class="d-inline p-2 h2">Welcome: 
+               
+            </div>
+
+            <div class="d-inline p-2 h2" th:object="${student}" th:text="*{firstName}">
+               
+            </div>
+            <div class="d-inline p-2 ml-5" >
+            <a th:href="@{/index}" class="ml-2 btn btn-dark">Logout</a>
+            </div>
+            <br>
+
+            <hr>
+            <h2 class="ml-2">
+                The list of assignments:
+            </h2>
+            <br>
+            
+            <table border="1" class="table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th> Course ID</th>
+                        <th> Student ID</th>
+                        <th> Session</th>
+                        <th> Term</th>
+                        <th> Credit Units</th>
+                        <th> Reference</th>
+                        <th> Text</th>
+                        <th> Submitted</th>
+                        <th> Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr th:object="${assignment}" th:each="assignment : ${listAss}">
+                        <td th:text="${assignment.courseId}"></td>
+                        <td th:text="${assignment.studentId}"></td>
+                        <td th:text="${assignment.session}"></td>
+                        <td th:text="${assignment.term}"></td>
+                        <td th:text="${assignment.creditUnits}"></td>
+                        <td th:text="${assignment.reference}"></td>
+                        <td th:text="${assignment.text}"></td>
+                        <td th:text="${assignment.submitted}"></td>
+                        <td><a th:href="@{/showUpdateAssignmentForm/{id}(id=${assignment.id})}" class="m-2 btn btn-primary col-10">Update</a>
+                            <a th:href="@{/showDeleteAssignmentForm/{id}(id=${assignment.id})}" class="m-2 btn btn-danger col-10">Delete</a></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+            <hr>
+            <a th:href="@{/welcomePageAdvisor}"> Back to Main Menu</a>
+
+        </div>
+
+    </body>
+</html>

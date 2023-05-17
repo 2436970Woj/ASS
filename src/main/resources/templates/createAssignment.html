@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Assignment Submission System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+              crossorigin="anonymous">
+        <link   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+                rel="stylesheet"  type='text/css'>
+    </head>
+
+    <body>
+        <div class="container my-2">
+            <h1>Assignment Submission System - Advisor</h1>
+            <hr>
+            <div class="d-inline p-2 h2">Welcome: 
+               
+            </div>
+
+            <div class="d-inline p-2 h2" th:object="${student}" th:text="*{firstName}">
+
+            </div>
+            <div class="d-inline p-2 ml-5" >
+                <a th:href="@{/index}" class="ml-2 btn btn-dark">Logout</a>
+            </div>
+            <br>
+            <hr>
+            <h2 class="ml-2">
+                Create new assignment
+            </h2>
+            <br>
+
+            <form action="#" th:action="@{/saveAssignment}" th:object="${assignmentErr}" method="POST">
+
+                <input type="text" th:object="${assignment}" th:field="*{courseId}" placeholder="Course ID" 
+                       required class="form-control mb-4 col-4">
+                <label class="ml-2 alert-warning" th:text="*{courseId}"></label><br>
+                
+                
+                <input type="text" th:object="${assignment}" th:field="*{studentId}" placeholder="Student ID" 
+                       required class="form-control mb-4 col-4">
+                <label class="ml-2 alert-warning" th:text="*{studentId}"></label><br>
+                
+                <input type="text" th:object="${assignment}" th:field="*{session}" placeholder="Session" 
+                       required class="form-control mb-4 col-4">
+                <label class="ml-2 alert-warning" th:text="*{session}"></label><br>
+                
+                <input type="text" th:object="${assignment}" th:field="*{term}" placeholder="Term" 
+                       required class="form-control mb-4 col-4">
+                <label class="ml-2 alert-warning" th:text="*{term}"></label><br>
+                
+                <input type="text" th:object="${assignment}" th:field="*{creditUnits}" placeholder="Credit Units" 
+                       required class="form-control mb-4 col-4">
+                <label class="ml-2 alert-warning" th:text="*{creditUnits}"></label><br>               
+                
+                <textarea th:object="${assignment}" th:field="*{text}" placeholder="Assignment Text" 
+                       required class="form-control" rows="10" style="min-width: 100%; min-height: 20%; max-height:1000px"></textarea>
+                <label class="ml-2 alert-warning" th:text="*{text}"></label><br>
+                
+                <button type="submit" class="btn btn-info col-2">Create</button>
+
+            </form>
+
+            <hr>
+            <a th:href="@{/welcomePageAdvisor}"> Back to Main Menu</a>
+
+        </div>
+
+    </body>
+</html>

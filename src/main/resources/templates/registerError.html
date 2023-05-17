@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Assignment Submission System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+              crossorigin="anonymous">
+    </head>
+        
+    <body>
+        <div class="container my-2">
+                    <h1>Assignment Submission System</h1>
+        <hr>
+        <h2>
+            Simply provide below details to sign up
+        </h2>
+   
+           
+           <br>
+        <form action="#" th:action="@{/saveStudent}" th:object="${studentError}" method="POST">
+            
+        <input type="text" th:object="${student}" th:field="*{firstName}" placeholder="First Name" 
+               required class="form-control mb-4 col-4">
+        <label class="ml-2 alert-warning" th:text="*{firstName}"></label><br>
+        
+        <input type="text" th:object="${student}" th:field="*{lastName}" placeholder="Last Name" 
+               required class="form-control mb-4 col-4">     
+        <label class="ml-2 alert-warning" th:text="*{lastName}"></label><br>
+        
+        <input type="text" th:object="${student}" th:field="*{courseId}" placeholder="Course Id" 
+               required class="form-control mb-4 col-4">  
+        <label class="ml-2 alert-warning" th:text="*{courseId}"></label><br>
+        
+        
+        <input type="text" th:object="${student}" th:field="*{marticulation}" placeholder="Marticulation number" 
+               required class="form-control mb-4 col-4">  
+        <label class="ml-2 alert-warning" th:text="*{marticulation}"></label><br>
+        
+        <input type="text" th:object="${student}" th:field="*{department}" placeholder="Department" 
+               required class="form-control mb-4 col-4"> 
+        <label class="ml-2 alert-warning" th:text="*{department}"></label><br>
+        
+        <input type="text" th:object="${student}" th:field="*{address}" placeholder="Address" 
+               required class="form-control mb-4 col-4"> 
+        <label class="ml-2 alert-warning" th:text="*{address}"></label><br>
+        
+        <input type="text" th:object="${student}" th:field="*{email}" placeholder="Email - This will be your username" 
+               required class="form-control mb-4 col-4">    
+        <label class="ml-2 alert-warning" th:text="*{email}"></label><br>
+        
+        <input type="text" th:object="${student}" th:field="*{password}" placeholder="password" 
+               required class="form-control mb-4 col-4"> 
+        <label class="ml-2 alert-warning" th:text="*{password}"></label><br>
+        
+        
+        <button type="submit" class="btn btn-info col-2">Register</button>
+        </form>
+        <hr>
+        <a th:href="@{/index}"> Back to Main Menu</a>
+        
+        </div>
+       
+    </body>
+</html>

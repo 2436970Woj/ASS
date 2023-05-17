@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Assignment Submission System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+              crossorigin="anonymous">
+        <link   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+                rel="stylesheet"  type='text/css'>
+    </head>
+
+    <body>
+        <div class="container my-2">
+            <h1>Assignment Submission System - Advisor</h1>
+            <hr>
+            <div class="d-inline p-2 h2">Welcome: 
+               
+            </div>
+
+            <div class="d-inline p-2 h2" th:object="${student}" th:text="*{firstName}">
+               
+            </div>
+            <div class="d-inline p-2 ml-5" >
+            <a th:href="@{/index}" class="ml-2 btn btn-dark">Logout</a>
+            </div>
+            <br>
+
+
+            <hr>
+            <p>
+            
+            <a class="m-2 btn btn-primary ml-2" th:href="@{/displayAllAssignments}"> Display/Modify Students assignments</a>
+            <a class="m-2 btn btn-primary ml-2" th:href="@{/createAssignment}"> Create new assignment</a>
+            <a class="m-2 btn btn-primary ml-2" th:href="@{/addNotesAll}">Display/Add note to assignments</a>
+            </p>
+            <hr>
+
+        </div>
+
+    </body>
+</html>
